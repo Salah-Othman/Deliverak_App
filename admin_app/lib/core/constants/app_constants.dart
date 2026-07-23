@@ -1,7 +1,7 @@
 class AppConstants {
   AppConstants._();
 
-  static const String appName = 'ديليفfragistics - لوحة التحكم';
+  static const String appName = 'ديليفراك - لوحة التحكم';
   static const String appNameEn = 'Deliverak Admin';
   static const String appTagline = 'إدارة المتجر والطلبات';
 

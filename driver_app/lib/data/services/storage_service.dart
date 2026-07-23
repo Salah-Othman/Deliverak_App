@@ -4,6 +4,10 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class StorageService {
+  static final StorageService _instance = StorageService._internal();
+  factory StorageService() => _instance;
+  StorageService._internal();
+
   final FirebaseStorage _storage = FirebaseStorage.instance;
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
   late Box _cacheBox;

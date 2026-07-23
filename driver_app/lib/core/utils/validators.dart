@@ -44,8 +44,9 @@ class Validators {
     if (value == null || value.trim().isEmpty) {
       return 'رمز التحقق مطلوب';
     }
-    if (value.length != 6) {
-      return 'رمز التحقق يجب أن يكون 6 أرقام';
+    final otpRegex = RegExp(r'^[0-9]{6}$');
+    if (!otpRegex.hasMatch(value.trim())) {
+      return 'رمز التحقق يجب أن يكون 6 أرقام فقط';
     }
     return null;
   }

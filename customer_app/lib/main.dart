@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/theme/app_theme.dart';
+import 'core/config/firebase_config.dart';
 import 'data/services/notification_service.dart';
 import 'data/services/storage_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await FirebaseConfig.initialize();
   await StorageService().init();
   await NotificationService().init();
-  runApp(const ProviderScope(child: DeliverakApp()));
+  runApp(const DeliverakApp());
 }
 
 class DeliverakApp extends StatelessWidget {
@@ -26,6 +26,11 @@ class DeliverakApp extends StatelessWidget {
       supportedLocales: const [
         Locale('ar', 'EG'),
         Locale('en', 'US'),
+      ],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       home: const Scaffold(
         body: Center(

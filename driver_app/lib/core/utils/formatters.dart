@@ -24,7 +24,7 @@ class Formatters {
     return DateFormat('hh:mm a', 'ar_EG').format(date);
   }
 
-  static String relativeTime(DateTime date) {
+  static String timeAgo(DateTime date) {
     final now = DateTime.now();
     final difference = now.difference(date);
 
@@ -37,8 +37,12 @@ class Formatters {
     } else if (difference.inDays < 7) {
       return 'منذ ${difference.inDays} يوم';
     } else {
-      return date(date);
+      return formatDate(date);
     }
+  }
+
+  static String formatDate(DateTime date) {
+    return DateFormat('dd/MM/yyyy', 'ar_EG').format(date);
   }
 
   static String phone(String phone) {

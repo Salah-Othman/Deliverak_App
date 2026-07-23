@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'location.freezed.dart';
@@ -56,9 +57,9 @@ extension AppLocationExtension on AppLocation {
     final double dLng =
         (other.longitude - longitude) * (3.141592653589793 / 180);
 
-    final double a = (dLat / 2).sin() * (dLat / 2).sin() +
-        lat1.cos() * lat2.cos() * (dLng / 2).sin() * (dLng / 2).sin();
-    final double c = 2 * a.sqrt().atan2((1 - a).sqrt());
+    final double a = sin(dLat / 2) * sin(dLat / 2) +
+        cos(lat1) * cos(lat2) * sin(dLng / 2) * sin(dLng / 2);
+    final double c = 2 * atan2(sqrt(a), sqrt(1 - a));
 
     return earthRadius * c;
   }

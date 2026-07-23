@@ -61,14 +61,16 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: AppColors.error),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      ),
-      cardTheme: CardTheme(
-        color: AppColors.card,
-        elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 16,
         ),
+      ),
+      cardTheme: CardThemeData(
+        color: AppColors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        elevation: 2,
+        shadowColor: AppColors.shadow,
       ),
     );
   }
